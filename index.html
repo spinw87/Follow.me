@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Follow Furkaan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      overflow-x: hidden; /* Prevent horizontal scrollbar */
+      background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .container {
+      min-height: 100vh; /* Ensure container takes at least full viewport height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 80px; /* Add padding at the bottom to prevent overlap with fixed captions */
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 30px;
+      text-align: center; /* Center the title */
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center; /* Vertically align buttons in case of wrapping */
+      margin-bottom: 40px; /* Add some space below the buttons */
+    }
+
+    .social-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px 30px;
+      border-radius: 50px;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      color: white;
+      min-width: 180px;
+      position: relative;
+    }
+
+    .social-button img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 8px;
+    }
+
+    .social-button span {
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: center; /* Center the text below the icon */
+    }
+
+    .social-button.lifted {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .loader-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      height: 20px;
+      margin-top: 6px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .loader-dots span {
+      width: 7px;
+      height: 7px;
+      background-color: white;
+      border-radius: 50%;
+      animation: bounce 0.6s infinite alternate;
+    }
+
+    .loader-dots span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .loader-dots span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0px);
+        opacity: 0.5;
+      }
+      to {
+        transform: translateY(-6px);
+        opacity: 1;
+      }
+    }
+
+    .loader-dots.show {
+      opacity: 1;
+    }
+
+    .bottom-captions {
+      position: fixed;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-direction: column; /* Stack captions vertically in the center for better readability on smaller screens */
+    }
+
+    .terms-conditions {
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    .terms-conditions a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+    }
+
+    .terms-conditions a:hover {
+      text-decoration: underline;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    /* Extra content to make the page longer */
+    .extra-content {
+      height: 400px; /* Adjust height as needed */
+      margin-bottom: 20px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+      padding: 20px;
+    }
+
+    .extra-content p {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Follow Me</h1>
+    <div class="social-buttons">
+      <div class="social-button" data-url="https://www.instagram.com/furkaaannn_.0?igsh=dmF1MTQyZDR5cmRw" onclick="liftAndLoad(this)">
+        <img src="instagram.png" alt="Instagram Logo">
+        <span>Instagram</span>
+        <div class="loader-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="social-button" data-url="https://x.com/maxfurkaan7?t=7Grx6iQkCzSt1BqxTrcCEA&s=09" onclick="liftAndLoad(this)">
+        <img src="twitter.png" alt="Twitter Logo">
+        <span>Twitter (X)</span>
+        <div class="loader-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="social-button" data-url="https://youtube.com/@fgsrinagar?si=g5PGmnWqXxYUr4-m" onclick="liftAndLoad(this)">
+        <img src="youtube.png" alt="YouTube Logo">
+        <span>YouTube</span>
+        <div class="loader-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="social-button" data-url="https://www.facebook.com/share/1BPdsdyTo2/" onclick="liftAndLoad(this)">
+        <img src="facebook.png" alt="Facebook Logo">
+        <span>Facebook</span>
+        <div class="loader-dots"><span></span><span></span><span></span></div>
+      </div>
+      <div class="social-button" data-url="https://tellonym.me/furkaaannn_.0" onclick="liftAndLoad(this)">
+        <img src="tellonym.png" alt="Tellonym Logo">
+        <span>Tellonym</span>
+        <div class="loader-dots"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  <div class="bottom-captions">
+    <div class="terms-conditions">
+      <a href="terms.html" target="_blank">Terms and Conditions</a>
+    </div>
+    <div class="copyright">
+      Presented to Maxfurkaan<br>Copyright ©️ 2025
+    </div>
+  </div>
+
+  <script>
+    function liftAndLoad(button) {
+      button.classList.add("lifted");
+      const loading = button.querySelector(".loader-dots");
+      loading.classList.add("show");
+
+      setTimeout(() => {
+        const url = button.getAttribute("data-url");
+        window.open(url, "_blank");
+
+        button.classList.remove("lifted");
+        loading.classList.remove("show");
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
